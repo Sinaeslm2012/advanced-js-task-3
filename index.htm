@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- link -->
+     <link rel="stylesheet" href="style/finalCss.css">
+     <link rel="stylesheet" href="style/navigation.css">
+    <!-- link -->
+
+    <!-- <script src="src/pages/navigationPage/navSection.js"></script> -->
+
+
+
+</head>
+<body>
+
+
+    <div id="root"> </div>
+    <div id="root2"> </div>
+
+
+    <script type="module">
+        // finalScript
+        // import {navPage} from "/src/pages/navigationPage/navSection.js"
+        
+        
+        // let rootElement = document.getElementById("root")
+        // let rootElement2 = document.getElementById("root2")
+        
+        
+        // const navePageElem = navPage()
+        
+        // rootElement.innerHTML = navPage()
+        // rootElement2.innerHTML = productList()
+        
+        // console.log(navePageElem)
+        
+        // import {navPage , productList , createProduct} from "/src/pages/index.js  "
+
+        import {createBrowserRouter , useNavigation} from "/src/package/router/router.js";
+        import {productList , createProduct} from "/src/pages/index.js"
+        import {navPage} from "/src/components/index.js"
+
+        const rootElement = document.getElementById("root") 
+        rootElement.innerHTML = navPage()
+        
+
+        const navigation = useNavigation()
+        navigation("/")
+
+
+        createBrowserRouter([
+            {path: "/" , element: () => productList() },
+            {path: "/create-product" , element: () => createProduct() }
+        ])
+
+
+
+    </script>
+</body>
+</html>
